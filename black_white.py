@@ -29,4 +29,4 @@ for x in range(0,im.size[0]):
         else:
             col = (255,255,255,255)
         pix[x,y] = col
-im.save(sys.argv[2])  # Save the modified pixels as .png
+im.save(sys.argv[2] if  len(sys.argv) == 3 else sys.argv[1])  # Save the modified pixels as .png
