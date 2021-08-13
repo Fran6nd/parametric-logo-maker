@@ -23,12 +23,15 @@ def draw_char(s, module, arg):
     d = ImageDraw.Draw(txt)
     d.text( (0, 0), s,  font=f, fill=255)
     w=txt.rotate(-arg - 90,  expand=1)
-    im.paste( ImageOps.colorize(w, (0,0,0), (255,0,0)), (int(pos.x-w.size[0]/2),int(pos.y-w.size[1]/2)),  w)
-def draw_text(s, module, arg):
+    im.paste( ImageOps.colorize(w, (0,0,0), (0,0,0)), (int(pos.x-w.size[0]/2),int(pos.y-w.size[1]/2)),  w)
+def draw_text(s, module, arg, angle_step):
     offset = 0
 
     for c in s:
         draw_char(c, module, arg - offset)
-        offset = offset + 6
-draw_text( "Salut c'est moi!", 500, 180)
+        offset = offset + angle_step
+def draw_text_centered(s, module, angle_step):
+    total_angle = len(s) * angle_step
+    draw_text(s, module, 90+total_angle/2-angle_step, angle_step)
+draw_text_centered( "SEMPER PARATI", 500,6)
 im.save(sys.argv[1])  # Save the modified pixels as .png
