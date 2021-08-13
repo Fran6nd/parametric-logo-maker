@@ -42,6 +42,6 @@ def draw_text(s, module, arg, angle_step):
 def draw_text_centered(s, module, angle_step):
     total_angle = (len(s)-1) * angle_step
     draw_text(s, module, 90+total_angle/2 if angle_step>0 else total_angle/2 -90, angle_step)
-draw_text_centered( "SEMPER PARATI", 500,6)
-draw_text_centered( "1515", 500,-6)
+draw_text_centered( "Præstat cautela quam medela".upper(), 500,6)
+draw_text_centered( "Ad impossibile neno tenatur".upper(), 500,-6)
 im.save(sys.argv[1])  # Save the modified pixels as .png

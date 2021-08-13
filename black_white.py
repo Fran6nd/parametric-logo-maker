@@ -4,8 +4,6 @@ from PIL import Image
 
 im = Image.open(sys.argv[1]) # Can be many different formats.
 pix = im.load()
-print(im.size)  # Get the width and hight of the image for iterating over
-print(pix[0,0])  # Get the RGBA Value of the a pixel of an image
 for x in range(0,im.size[0]):
     for y in range(0,im.size[1]):
         col = pix[x,y]
