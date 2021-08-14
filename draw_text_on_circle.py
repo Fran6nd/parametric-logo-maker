@@ -11,7 +11,7 @@ pix = im.load()
 for x in range(0, im.size[0]):
     for y in range(0, im.size[1]):
         pass
-f =  ImageFont.truetype(sys.argv[2], int(sys.argv[3]))
+f =  ImageFont.truetype(sys.argv[4], int(sys.argv[5]))
 
 def get_text_dimensions(text_string, font):
     # https://stackoverflow.com/a/46220683/9263761
@@ -42,6 +42,5 @@ def draw_text(s, module, arg, angle_step):
 def draw_text_centered(s, module, angle_step):
     total_angle = (len(s)-1) * angle_step
     draw_text(s, module, 90+total_angle/2 if angle_step>0 else total_angle/2 -90, angle_step)
-draw_text_centered( "Præstat cautela quam medela".upper(), 500,6)
-draw_text_centered( "Ad impossibile neno tenatur".upper(), 500,-6)
+draw_text_centered( sys.argv[2].upper(), int(sys.argv[3]),6)
 im.save(sys.argv[1])  # Save the modified pixels as .png
