@@ -19,4 +19,4 @@ for x in range(0, im1.size[0]):
             pix1[x,y] = (255,255,255,255)
         elif  pix1[x,y][0] <= 128:
             pix1[x,y] = (0,0,0,255)
-im1.save(sys.argv[3])  # Save the modified pixels as .png
+im1.save(sys.argv[1])  # Save the modified pixels as .png

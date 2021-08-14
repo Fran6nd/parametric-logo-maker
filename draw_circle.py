@@ -9,4 +9,4 @@ pix = im.load()
 draw.ellipse(((0,0),( im.size[0], im.size[0])),width=30, outline=(0, 0, 0))
 draw.ellipse(((55,55), (im.size[0]-55, im.size[0]-55)),width=10, outline=(0, 0, 0))
 
-im.save(sys.argv[2] if  len(sys.argv) == 3 else sys.argv[1])  # Save the modified pixels as .png
+im.save(im.save(sys.argv[1]))  # Save the modified pixels as .png
