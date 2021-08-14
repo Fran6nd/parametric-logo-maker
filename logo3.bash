@@ -1,5 +1,6 @@
 #!/bin/sh
-./squarify.py wolf.png tmp.png
+cp wolf.png tmp.png
+./squarify.py tmp.png
 
 ./draw_circle.py tmp.png
 ./keep_only_the_circle.py tmp.png
