@@ -1,11 +1,15 @@
 #!/bin/sh
 cp wolf.png tmp.png
+
 ./squarify.py tmp.png
 ./draw_circle.py tmp.png
 #./black_white.py tmp.png
 
-./draw_text_on_circle_up.py tmp.png "Libertas potior quam saturitas" 500 arial.ttf 50
-./draw_text_on_circle_down.py tmp.png "ALBUS LUPUS" 500 arial.ttf 50
+./draw_text_on_circle_up.py tmp.png "FREEDOM RATHER THAN SATIETY" 500 arial.ttf 50
+#./draw_text_on_circle_up.py tmp.png "Libertas potior quam saturitas" 500 arial.ttf 50
+#./draw_text_on_circle_down.py tmp.png "ALBUS  LUPUS" 500 arial.ttf 50
+./draw_text_on_circle_down.py tmp.png "WHITE WEREWOLF" 500 arial.ttf 50
 
-./black_white.py tmp.png
+#./black_white.py tmp.png
+./flip.py tmp.png
 ./keep_only_the_circle.py tmp.png 

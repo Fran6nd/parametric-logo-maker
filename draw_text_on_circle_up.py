@@ -11,6 +11,10 @@ pix = im.load()
 for x in range(0, im.size[0]):
     for y in range(0, im.size[1]):
         pass
+font = sys.argv[4]
+font_size = sys.argv[5]
+radius = int(sys.argv[3])
+
 f =  ImageFont.truetype(sys.argv[4], int(sys.argv[5]))
 
 def get_text_dimensions(text_string, font):

@@ -9,6 +9,6 @@ cp wolf.png tmp.png
 #./draw_circle.py tmp.png
 #./keep_only_the_circle.py tmp.png
 
-
+./flip.py tmp.png
 ./keep_borders.py tmp.png
 #./black_white.py tmp.png
