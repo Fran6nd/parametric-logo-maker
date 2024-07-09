@@ -1,15 +1,15 @@
 #!/bin/sh
 cp black1000.png alys_front.png
 ./merge.py alys_front.png center.png
-./draw_centered_disc.py alys_front.png --inner-radius 380 --outer-radius 420 --color BLACK
+./draw_centered_disc.py alys_front.png --inner-radius 400 --outer-radius 420 --color BLACK
 ./flip.py alys_front.png
 ./draw_centered_disc.py alys_front.png --inner-radius 420
 ./flip.py alys_front.png
-./draw_text_on_circle_down.py alys_front.png "21/07/1992" 450 Candal.ttf 70
+./draw_text.py alys_front.png "21/07/1992" Candal.ttf 70 --radius 460 --on-circle --rotation 180 --reversed
 
-./draw_text_on_circle_up.py alys_front.png "ALICE.H" 470 Candal.ttf 70
+./draw_text.py alys_front.png "ALICE*H" Candal.ttf  70  --on-circle --radius 460
 ./flip.py alys_front.png
-./draw_text_on_circle_down.py alys_front.png "ALYS      " 350 Candal.ttf 50
+./draw_text.py alys_front.png '"ALYS"      ' Candal.ttf  50  --on-circle --radius 370 --rotation 180 --reversed
 ./flip.py alys_front.png
 
 cp black1000.png alys_rear.png
