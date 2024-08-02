@@ -4,7 +4,11 @@ import argparse
 import math
 from PIL import Image
 
-def create_polar_array(output_image_path, overlay_image_path, count, offset_rotation, radius, lookat_center, input_scale):
+def create_polar_array(target_image_path, overlay_image_path, count, offset_rotation, radius, lookat_center, input_scale):
+    # Load the target image
+    target_image = Image.open(target_image_path).convert('RGBA')
+    target_width, target_height = target_image.size
+    
     # Load and scale the overlay image
     overlay_image = Image.open(overlay_image_path).convert('RGBA')
     
@@ -18,11 +22,11 @@ def create_polar_array(output_image_path, overlay_image_path, count, offset_rota
     
     overlay_width, overlay_height = overlay_image.size
     
-    # Create a new image with a transparent background
-    result_image = Image.new('RGBA', (2 * radius + overlay_width, 2 * radius + overlay_height), (255, 255, 255, 0))
+    # Create a copy of the target image to draw on
+    result_image = target_image.copy()
     
-    # Calculate the center of the new image
-    center_x, center_y = result_image.size[0] / 2, result_image.size[1] / 2
+    # Calculate the center of the target image
+    center_x, center_y = target_width / 2, target_height / 2
     
     # Draw the overlay images in a polar array
     for i in range(count):
@@ -35,7 +39,7 @@ def create_polar_array(output_image_path, overlay_image_path, count, offset_rota
         result_image.paste(overlay_image, (int(x), int(y)), overlay_image)
 
     # Save the result image
-    result_image.save(output_image_path)
+    result_image.save(target_image_path)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Create a polar array of images.")
@@ -44,7 +48,7 @@ if __name__ == "__main__":
     parser.add_argument("--count", type=int, default=2, help="Number of overlay images in the polar array.")
     parser.add_argument("--offset-rotation", type=float, default=0, help="Offset rotation in degrees for the polar array.")
     parser.add_argument("--radius", type=int, default=50, help="Radius of the polar array.")
-    parser.add_argument("--no-lookat-center", action='store_true', help="Do not center the array on the new image's center.")
+    parser.add_argument("--no-lookat-center", default=False, action='store_true', help="Do not center the array on the new image's center.")
     parser.add_argument("--input-scale", type=float, default=1.0, help="Scale factor for the overlay image between 0 and 1.")
 
     args = parser.parse_args()
@@ -55,7 +59,7 @@ if __name__ == "__main__":
         sys.exit(1)
     
     create_polar_array(
-        output_image_path=args.output_image,
+        target_image_path=args.output_image,
         overlay_image_path=args.overlay_image,
         count=args.count,
         offset_rotation=args.offset_rotation,
