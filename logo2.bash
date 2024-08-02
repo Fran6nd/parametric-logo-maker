@@ -12,4 +12,4 @@ cp wolf.png tmp.png
 ./flip.py tmp.png
 #./keep_borders.py tmp.png
 #./black_white.py tmp.png
-./polar_array.py tmp.png lys.png --radius 50 --input-scale 0.05 --count 5
+./polar_array.py tmp.png lys.png --radius 100 --input-scale 0.1 --count 5 --offset-rotation 40 --input-offset-rotation 90
